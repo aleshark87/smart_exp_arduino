@@ -3,11 +3,11 @@
 
 #include "Task.h"
 #include "Arduino.h"
-#include "Buffer.h"
+#include "Headers/Buffer.h"
 #include "Sensors/Pot.h"
 #include "Sensors/Sonar.h"
 #include "MsgService.h"
-#include "Definitions.h"
+#include "Headers/Definitions.h"
 #include <avr/sleep.h>
 
 void timerFunction();

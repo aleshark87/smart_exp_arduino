@@ -1,6 +1,4 @@
 #include "Sensors/Pot.h"
-#include "Arduino.h"
-#include "Definitions.h"
 
 Pot::Pot(){
 }

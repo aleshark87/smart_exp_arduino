@@ -4,8 +4,8 @@
 #include "Task.h"
 #include "../Sensors/Sonar.h"
 #include "Arduino.h"
-#include "Buffer.h"
-#include "Definitions.h"
+#include "Headers/Buffer.h"
+#include "Headers/Definitions.h"
 #define LIBCALL_ENABLEINTERRUPT
 #include <EnableInterrupt.h>
 

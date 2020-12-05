@@ -1,6 +1,9 @@
 #ifndef __POT__
 #define __POT__
 
+#include "Arduino.h"
+#include "Headers/Definitions.h"
+
 class Pot {
 public:
     Pot();

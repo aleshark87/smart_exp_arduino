@@ -1,7 +1,7 @@
 #ifndef __TERMO__
 #define __TERMO__
 
-#include "Definitions.h"
+#include "Headers/Definitions.h"
 #include "Arduino.h"
 
 class Termo {

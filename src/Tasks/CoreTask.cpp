@@ -4,7 +4,6 @@
 State state;
 volatile bool btPressedV;
 bool timerOn;
-bool firstInit = false;
 bool ledState = false;
 bool ledStateError = false;
 

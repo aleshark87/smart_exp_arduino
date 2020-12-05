@@ -4,8 +4,8 @@
 #include "Arduino.h"
 #include "Task.h"
 #include <Servo.h>
-#include "Buffer.h"
-#include "Definitions.h"
+#include "Headers/Buffer.h"
+#include "Headers/Definitions.h"
 
 class ServoTask : public Task{
 private:

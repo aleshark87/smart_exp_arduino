@@ -2,9 +2,9 @@
 #define __SONAR__
 
 #include "Termo.h"
-#include "Definitions.h"
+#include "Headers/Definitions.h"
 #include "Arduino.h"
-#include "Buffer.h"
+#include "Headers/Buffer.h"
 
 class Sonar {
 public:
