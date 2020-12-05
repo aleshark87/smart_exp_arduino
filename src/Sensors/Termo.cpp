@@ -1,12 +1,11 @@
 #include "Sensors/Termo.h"
-#include "Arduino.h"
+
 #define RT0 10000   // Ω
 #define B 3977      // K
 #define VCC 5    //Supply voltage
 #define R 10000  //R=10KΩ
 
-Termo::Termo(int pin){
-    this->pin = pin;
+Termo::Termo(){
     RT = VR = ln = TX = T0 = VRT = 0;
     T0 = 25 + 273.15; //Temperature T0 from datasheet
 }
@@ -25,7 +24,7 @@ void Termo::calculateValue(){
 }
 
 void Termo::readValue(){
-    VRT = analogRead(pin);     //Acquisition analog value of VRT
+    VRT = analogRead(termPIN);     //Acquisition analog value of VRT
 }
 
 float Termo::getValue(){

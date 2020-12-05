@@ -1,15 +1,17 @@
 #ifndef __TERMO__
 #define __TERMO__
 
+#include "Definitions.h"
+#include "Arduino.h"
+
 class Termo {
 public:
-    Termo(int pin);
+    Termo();
     float getValue();
 private:
     float RT, VR, ln, TX, T0, VRT;
     void readValue();
     void calculateValue();
-    int pin;
 };
 
 #endif
