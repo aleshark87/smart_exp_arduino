@@ -2,6 +2,7 @@
 
 Sonar::Sonar(int triggerPin, int echoPin){
     this->termo = new Termo();
+    /* calculating speed of sound using real thermo measure */
     vs = 331.45 + 0.62*(termo->getValue());
     this->triggerPin = triggerPin;
     this->echoPin = echoPin;

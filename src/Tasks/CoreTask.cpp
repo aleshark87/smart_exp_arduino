@@ -7,6 +7,7 @@ bool timerOn;
 bool ledState = false;
 bool ledStateError = false;
 
+/* INT handler */
 void btPressed(){
     btPressedV = true;
 }
@@ -35,6 +36,7 @@ void CoreTask::init(int period){
 
 void CoreTask::tick(){
     if(state == START){
+        /* No btn pression in SLEEP_TIME period */
         if(periodSum >= SLEEP_TIME){
             timerFunction();
         }
@@ -45,7 +47,8 @@ void CoreTask::tick(){
             if(btPressedV == true){
                 if(sonar->objectPresent()){
                     disableInterrupt(BstartPIN); disableInterrupt(2);
-                    int periodFromPot = 100/*pot->getValue() * 20*/;
+                    /* Calculates new Period taking value from the pot */
+                    int periodFromPot = pot->getValue() * 20;
                     sonarTask->init(periodFromPot); servoTask->init(periodFromPot);
                     serialTask->init(periodFromPot);
                     analogWrite(RED_PIN, 255); analogWrite(GREEN_PIN, 0);
@@ -70,6 +73,7 @@ void CoreTask::tick(){
         Serial.println(str); Serial.flush();
         int timeStart = millis();
         while((millis() - timeStart) < ERROR_TIME){
+            /* Blinking */
             if(!ledStateError){
                 analogWrite(GREEN_PIN, 255);
             }
@@ -85,7 +89,7 @@ void CoreTask::tick(){
         analogWrite(GREEN_PIN, 0); 
         String str = "state/" + String(state) + "s";
         Serial.print("state/"); Serial.print(state); Serial.print("\n"); Serial.flush();
-
+        /* Going to sleep */
         set_sleep_mode(SLEEP_MODE_PWR_DOWN);
         sleep_enable();
         sleep_mode();
@@ -98,6 +102,7 @@ void CoreTask::tick(){
     
     if(state == END){
         analogWrite(GREEN_PIN, 0);
+        /* Receive Message */
         if (MsgService.isMsgAvailable()) {
             Msg* msg = MsgService.receiveMsg();    
             if (msg->getContent() == "OK"){
@@ -107,6 +112,7 @@ void CoreTask::tick(){
             delete msg;         
         }
         else{
+            /* Blinking */
             if(!ledState){
                 analogWrite(RED_PIN, 255);
             }

@@ -1,6 +1,8 @@
 #ifndef __DEFINITIONS__
 #define __DEFINITIONS__
 
+/** This Header defines some useful definition for program work */
+
 #define RED_PIN 10
 #define GREEN_PIN 9
 #define TRIGGER_PIN 11
