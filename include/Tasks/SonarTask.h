@@ -3,9 +3,11 @@
 
 #include "Task.h"
 #include "../Sensors/Sonar.h"
+#include "Arduino.h"
+#include "Buffer.h"
+#include "Definitions.h"
 #define LIBCALL_ENABLEINTERRUPT
 #include <EnableInterrupt.h>
-#define MAX_TIME 20000
 
 class SonarTask: public Task {
 private:

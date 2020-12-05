@@ -2,6 +2,9 @@
 #define __SONAR__
 
 #include "Termo.h"
+#include "Definitions.h"
+#include "Arduino.h"
+#include "Buffer.h"
 
 class Sonar {
 public:
@@ -9,6 +12,7 @@ public:
     float getValue();
     bool objectPresent();
 private:
+    float vs;
     Termo* termo;
     void readValue();
     int triggerPin;

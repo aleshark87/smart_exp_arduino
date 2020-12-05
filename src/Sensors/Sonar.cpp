@@ -1,12 +1,8 @@
 #include "Sensors/Sonar.h"
-#include "Arduino.h"
-#include "Buffer.h"
-#define MAXDISTANCE 1.0
-//only for initialization
-float vs = 331.45 + 0.62*20;
 
 Sonar::Sonar(int triggerPin, int echoPin){
-    this->termo = new Termo(A0);
+    this->termo = new Termo();
+    vs = 331.45 + 0.62*(termo->getValue());
     this->triggerPin = triggerPin;
     this->echoPin = echoPin;
     pinMode(triggerPin, OUTPUT);
@@ -14,7 +10,6 @@ Sonar::Sonar(int triggerPin, int echoPin){
 }
 
 void Sonar::readValue(){
-    vs = 331.45 + 0.62*(termo->getValue());
     /* invio impulso */
     digitalWrite(triggerPin,LOW);
     delayMicroseconds(5);

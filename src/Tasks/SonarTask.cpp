@@ -1,7 +1,4 @@
 #include "Tasks/SonarTask.h"
-#include "Arduino.h"
-#include "Buffer.h"
-#include "Definitions.h"
 
 float sonarValue;
 float prevSonarValue;

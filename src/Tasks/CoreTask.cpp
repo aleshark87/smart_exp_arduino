@@ -1,7 +1,5 @@
 #include "Tasks/CoreTask.h"
 #include <EnableInterrupt.h>
-#define SLEEP_TIME 5000
-#define ERROR_TIME 2000
 
 State state;
 volatile bool btPressedV;
@@ -60,7 +58,6 @@ void CoreTask::tick(){
                 
             }
             if(btPressedV == false){ 
-                //Serial.println("SLEEP");
                 disableInterrupt(BstartPIN);
                 state = SLEEP; 
             }
@@ -94,7 +91,6 @@ void CoreTask::tick(){
         sleep_enable();
         sleep_mode();
         /** The program will continue from here. **/ 
-        //Serial.println("I'M AWAKE NOW");
         /* First thing to do is disable sleep. */  
         sleep_disable();   
         disableInterrupt(pirSensorPin);
@@ -103,7 +99,6 @@ void CoreTask::tick(){
     
     if(state == END){
         analogWrite(GREEN_PIN, 0);
-        //analogWrite(pinL2, 255);
         if (MsgService.isMsgAvailable()) {
             Msg* msg = MsgService.receiveMsg();    
             if (msg->getContent() == "OK"){

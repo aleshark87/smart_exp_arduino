@@ -11,5 +11,9 @@
 #define termPIN A0
 #define potPIN A5
 #define servoPIN 5
+#define MAX_TIME 20000
+#define SLEEP_TIME 5000
+#define ERROR_TIME 2000
+#define MAXDISTANCE 1.0
 
 #endif
